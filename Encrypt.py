@@ -1,5 +1,5 @@
-from time import sleep
-import sys
+from time import sleep #import time library
+import sys #import sys library
 
 def encrypt(string, shift): #creates `encrpyt` function calling for string and shift value
  
@@ -29,24 +29,6 @@ def decrypt(string, shift): #creates `encrpyt` function calling for string and s
   return cipher #new value for cipher
 
 
-def emessage():
-    text = input("Enter string: ") #asks for string
-    s = int(input("Enter shift number: ")) #how much down ASCII the characters will move
-    print("\nOriginal string: ", text) #prints text variable]
-    sleep(0.6)
-    print("After encryption: ", encrypt(text, s)) #prints encrypted string using the shift value
-    sleep(1)
-    
-
-def dmessage():
-    text = input("Enter string: ") #asks for string
-    s = int(input("Enter shift number: ")) #how much down ASCII the characters will move
-    print("\nOriginal string: ", text) #prints text variable
-    sleep(0.6)
-    print("After decryption: ", decrypt(text, s)) #prints encrypted string using the shift value
-    sleep(1)
-
-
 def mode():
     while True:
         print("\nPlease choose from the following options:\n") #Asks to choose an option
@@ -55,13 +37,19 @@ def mode():
         sleep(0.8)
         print("2 = Decrypt the string.\n") #option 2
         sleep(0.8)
-        print("3 = Exit the program.\n") #option 3
+        print("3 = Exit the program.") #option 3
         mode = input().lower() #assigning input to mode and lower casing it
+
+        if(mode != "3"):
+          text = input("\nEnter string: ") #asks for string
+          s = int(input("Enter shift number: ")) #how much down ASCII the characters will move
+          print("\nOriginal string: ", text) #prints text variable
         
-        if(mode == "1"): #
-            dmessage() #runs `dmessage` function
+        if(mode == "1"): 
+            print("After encryption: ", encrypt(text, s)) #prints encrypted string using the shift value
+            sleep(1)
         elif(mode == "2"):
-            emessage() #runs `emssage` function
+            print("After decryption: ", decrypt(text, s)) #prints encrypted string using the shift value
         elif(mode == "3"):
             sys.exit() #quits program
         else:
